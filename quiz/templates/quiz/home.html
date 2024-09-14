@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <!-- <h2>Home</h2> -->
+        {% if user.is_authenticated %}
+            <p>Вітаємо, {{ user.username }}!</p>
+            <div style="margin-top: 20px;">
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Вийти</button>
+                </form>
+            </div>
+        {% else %}
+            <p>Будь ласка, увійдіть до свого облікового запису.</p>
+            <div style="margin-top: 20px;">
+                <form method="get" action="{% url 'login' %}">
+                    <button type="submit">Увійти</button>
+                </form>
+            </div>
+        {% endif %}
+    </body>
+</html>
