@@ -1,11 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logged Out</title>
-</head>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
 <body>
     <h1>You have been logged out.</h1>
     <p>Thank you for visiting. You can log in again if you want.</p>
@@ -13,6 +12,6 @@
         {% csrf_token %}
         <button type="submit">Log Out Again</button>
     </form>
-    <a href="{% url 'home' %}">Go to Home</a>  <!-- Link to go back to home -->
+    <a class="margin-top-20" href="{% url 'home' %}">Go to Home</a>
 </body>
 </html>
