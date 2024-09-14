@@ -6,12 +6,11 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     </head>
 <body>
-    <h1>You have been logged out.</h1>
-    <p>Thank you for visiting. You can log in again if you want.</p>
-    <form action="{% url 'logout' %}" method="post">
+    <h2>Register</h2>
+    <form method="POST">
         {% csrf_token %}
-        <button type="submit">Log Out Again</button>
+        {{ form.as_p }}
+        <button type="submit">Register</button>
     </form>
-    <a class="margin-top-20" href="{% url 'home' %}">Go to Home</a>
 </body>
 </html>
