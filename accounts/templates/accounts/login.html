@@ -12,5 +12,11 @@
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
+    <div class="margin-top-20">
+        <p>Або зареєструйтеся</p>
+        <form method="get" action="{% url 'register' %}">
+            <button type="submit">реєстрація</button>
+        </form>
+    </div>
 </body>
 </html>
