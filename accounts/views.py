@@ -12,11 +12,12 @@ from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.views import View
+from .forms import CustomUserCreationForm
 
 
 class RegisterView(FormView):
     template_name = 'accounts/register.html'
-    form_class = UserCreationForm
+    form_class = form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):

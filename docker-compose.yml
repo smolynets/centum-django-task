@@ -9,7 +9,7 @@ services:
             - 80:80
         volumes:
             - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-            - static_volume:/app/django_static
+            - static_volume:/app/static
         depends_on:
             - server
 
@@ -21,7 +21,7 @@ services:
             dockerfile: ./docker/backend/Dockerfile
         entrypoint: /app/docker/backend/server-entrypoint.sh
         volumes:
-            - static_volume:/app/django_static
+            - static_volume:/app/static
         expose:
             - 8000
         # ports:
