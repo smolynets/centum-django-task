@@ -4,7 +4,7 @@
 # https://docs.djangoproject.com/en/5.0/topics/signing/
 SECRET_KEY="your-secret_key"
 DEBUG=True
-ALLOWED_HOSTS=0.0.0.0
+ALLOWED_HOSTS=*
 
 # db settings
 ENGINE=django.db.backends.postgresql
@@ -13,3 +13,6 @@ PORT=5432
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=

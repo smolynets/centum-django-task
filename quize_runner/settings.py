@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "social_django",
     "accounts",
     "quiz",
 ]
@@ -146,3 +147,17 @@ STATIC_ROOT = BASE_DIR / "django_static"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
+SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'http://localhost/accounts/google-auth-complete/'
