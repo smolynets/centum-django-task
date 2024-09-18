@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.views import View
 from .forms import CustomUserCreationForm
+from django.views.generic import TemplateView
 
 
 class RegisterView(FormView):
@@ -91,3 +92,7 @@ class GoogleAuthCompleteView(View):
 
     def render_error(self, error_message):
         return render(self.request, 'error.html', {'error': error_message})
+
+
+class ProfileView(TemplateView):
+    template_name = 'accounts/profile.html'

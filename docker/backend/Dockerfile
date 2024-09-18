@@ -19,5 +19,7 @@ RUN pip install -r requirements.txt
 
 ADD ./ /app
 ADD ./docker /app/docker
+# COPY ./static /app/static/
+# RUN python manage.py collectstatic --noinput --clear
 
 RUN chmod +x /app/docker/backend/server-entrypoint.sh
