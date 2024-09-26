@@ -6,7 +6,15 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = (
-            'email', 'username', 'password1', 'password2', 'first_name', 'last_name', 'profile_image'
+            'email',
+            'username',
+            'password1',
+            'password2',
+            'first_name',
+            'last_name',
+            'birthday',
+            'description',
+            'profile_image'
         )
 
     def save(self, commit=True):
