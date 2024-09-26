@@ -8,7 +8,7 @@
     <body>
         <!-- <h2>Home</h2> -->
         {% if user.is_authenticated %}
-            <p>Вітаємоsfdsdfsdf, {{ user.username }}!</p>
+            <p>Вітаємо, {{ user.username }}!</p>
             sdfsdsd
             <div style="margin-top: 20px;">
                 <ul>
@@ -16,8 +16,13 @@
                     <li>username - {{ user.first_name }}</li>
                     <li>username - {{ user.last_name }}</li>
                 </ul>
-            </div>
-        {% else %}
+                {% if user.profile_image %}
+                    <img src="{{ user.profile_image.url }}" width="150" height="150">
+                {% else %}
+                    <p>No profile image uploaded.</p>
+                {% endif %}
+                            </div>
+                        {% else %}
             <div class="margin-top-20">
                 <p>Будь ласка, увійдіть до свого облікового запису.</p>
                 <form method="get" action="{% url 'login' %}">
