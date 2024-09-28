@@ -6,7 +6,6 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     </head>
     <body>
-        <!-- <h2>Home</h2> -->
         {% if user.is_authenticated %}
             <p>Вітаємо, {{ user.username }}!</p>
             <div style="margin-top: 20px;">
