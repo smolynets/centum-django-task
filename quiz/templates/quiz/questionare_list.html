@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список тестів</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Список тестів</h1>
+    
+    <ul>
+        {% for questionare in questionares %}
+            <li>
+                <h2>{{ questionare.name }}</h2>
+                <p>{{ questionare.description }}</p>
+                <p>Кількість спроб: {{ questionare.attempts }}</p>
+                
+                <h3>Запитання:</h3>
+                <ul>
+                    {% for question in questionare.questions.all %}
+                        <li>
+                            <strong>{{ question.question_text }}</strong>
+                            <ul>
+                                {% for answer in question.answers.all %}
+                                    <li>
+                                        {{ answer.answer_text }} {% if answer.is_correct %} (Правильна) {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% empty %}
+                        <li>Ця анкета не містить запитань.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% empty %}
+            <li>Немає жодної анкети.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

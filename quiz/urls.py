@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import HomeView, create_questionare_with_questions
+from .views import HomeView, QuestionareListView
 
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('create-questionare/', create_questionare_with_questions, name='create_questionare')
+    path('questionares/', QuestionareListView.as_view(), name='questionare_list')
 ]
